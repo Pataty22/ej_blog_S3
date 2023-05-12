@@ -1,5 +1,4 @@
 const { Sequelize } = require("sequelize");
-const articleSeeder = require("../seeders/articleSeeder");
 
 const sequelize = new Sequelize(
   process.env.DB_DATABASE, // Ej: hack_academy_db
@@ -15,7 +14,6 @@ const sequelize = new Sequelize(
 const Article = require("./Article");
 const Author = require("./Author");
 const Comment = require("./Comment");
-const authorSeeder = require("../seeders/authorSeeder");
 
 Article.initModel(sequelize);
 Author.initModel(sequelize);
@@ -27,10 +25,7 @@ Article.belongsTo(Author);
 Article.hasMany(Comment);
 Comment.belongsTo(Article);
 
-sequelize.sync({ alter: true }).then(async () => {
-  await authorSeeder(Author);
-  await articleSeeder(Article);
-});
+sequelize.sync({ alter: true });
 
 module.exports = {
   sequelize,
