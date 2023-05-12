@@ -7,13 +7,13 @@ const commentController = require("../controllers/commentController");
 routes.get("/api/articulos", articleController.apiArticle);
 
 //Muestra todos los articulos, o individualmente de acuerdo a su id.
-routes.get("/article/:id", articleController.findOneArticle);
-routes.post("/article/:id", articleController.storeEdit);
+routes.get("/:id", articleController.findOneArticle);
+routes.post("/:id", articleController.storeEdit);
 
 //Guardar y postear comentario
-routes.post("/article/review/:id", commentController.review);
+routes.post("/review/:id", commentController.review);
 
 //Funcionalidad del botón "eliminar". (No requiere una vista)
-routes.get("/article/delete/:id", articleController.destroyArticle);
+routes.get("/delete/:id", articleController.destroyArticle);
 
 module.exports = routes;
