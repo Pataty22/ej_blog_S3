@@ -1,7 +1,4 @@
 const passport = require("passport");
-const LocalStrategy = require("passport-local");
-const bcrypt = require("bcryptjs");
-const { Author } = require("../models");
 
 function viewLogin(req, res) {
   res.render("login", { message: req.flash("error") });

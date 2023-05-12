@@ -1,11 +1,12 @@
 require("dotenv").config();
+const { passport, passportConfig } = require("./passport");
 
 const flash = require("express-flash");
 const express = require("express");
 const session = require("express-session");
 
 const makeUserAvailableInViews = require("./middlewares/makeUserAvailableInViews");
-const { passport, passportConfig } = require("./passport");
+
 const routes = require("./routes");
 
 const app = express();
@@ -30,7 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(flash());
 app.use(express.json());
 
-app.use(routes);
+routes(app);
 
 passportConfig();
 

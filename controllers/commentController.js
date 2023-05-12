@@ -1,4 +1,4 @@
-const { Comment, Article } = require("../models");
+const { Comment } = require("../models");
 
 async function review(req, res) {
   const { inputName: name, content: content } = req.body;
