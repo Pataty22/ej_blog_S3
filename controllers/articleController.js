@@ -1,5 +1,5 @@
 const formidable = require("formidable");
-const { Article, Comment, Author } = require("../models");
+const { Article, Comment, User } = require("../models");
 
 async function apiArticle(req, res) {
   const listaDeArticulos = await Article.findAll();
@@ -12,8 +12,8 @@ async function index(req, res) {
   });
 
   for (i = 0; i < listaDeArticulos.length; i++) {
-    const name = await Author.findByPk(listaDeArticulos[i].authorId);
-    listaDeArticulos[i].authorId = name;
+    const name = await User.findByPk(listaDeArticulos[i].userId);
+    listaDeArticulos[i].userId = name;
   }
 
   return res.render("home", {
@@ -24,8 +24,8 @@ async function index(req, res) {
 async function findOneArticle(req, res) {
   const id = req.params.id;
   const article = await Article.findByPk(id);
-  const name = await Author.findByPk(article.authorId);
-  article.authorId = name;
+  const name = await User.findByPk(article.userId);
+  article.userId = name;
 
   const listaDeComentarios = await Comment.findAll({
     where: {

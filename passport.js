@@ -1,7 +1,7 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const bcrypt = require("bcryptjs");
-const { Author } = require("./models");
+const { User } = require("./models");
 
 function passportConfig() {
   passport.use(
@@ -9,7 +9,7 @@ function passportConfig() {
       { usernameField: "email" },
       async (email, password, done) => {
         try {
-          const user = await Author.findOne({ where: { email: email } });
+          const user = await User.findOne({ where: { email: email } });
 
           if (!user) {
             return done(null, false, { message: "Credenciales incorrectas" });
