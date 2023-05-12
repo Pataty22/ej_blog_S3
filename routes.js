@@ -5,7 +5,6 @@ const registerController = require("./controllers/registerController");
 const loginController = require("./controllers/loginController");
 const logoutController = require("./controllers/logoutController");
 const adminController = require("./controllers/adminController");
-const makeUserAvailableInViews = require("./middlewares/makeUserAvailableInViews");
 
 const router = express.Router();
 
@@ -20,11 +19,7 @@ router.get("/article/:id", articleController.findOneArticle);
 router.get("/admin", adminController.admin);
 
 //Rutas y vistas de opciones "editar" articulo.
-router.post(
-  "/admin/crear",
-
-  articleController.storeArticle
-);
+router.post("/admin/crear", articleController.storeArticle);
 router.post("/article/:id", articleController.storeEdit);
 router.get("/admin/crear", articleController.formUploadArticle);
 router.get("/admin/editar/:id", articleController.formUpdateArticle);

@@ -25,8 +25,6 @@ Article.belongsTo(Author);
 Article.hasMany(Comment);
 Comment.belongsTo(Article);
 
-sequelize.sync({ alter: true });
-
 module.exports = {
   sequelize,
   Article,
