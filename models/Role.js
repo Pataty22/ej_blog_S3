@@ -1,8 +1,8 @@
 const { Model, DataTypes } = require("sequelize");
 
-class Rol extends Model {
+class Role extends Model {
   static initModel(sequelize) {
-    Rol.init(
+    Role.init(
       {
         id: {
           type: DataTypes.BIGINT.UNSIGNED,
@@ -24,8 +24,8 @@ class Rol extends Model {
         modelName: "rols",
       }
     );
-    return Rol;
+    return Role;
   }
 }
 
-module.exports = Rol;
+module.exports = Role;

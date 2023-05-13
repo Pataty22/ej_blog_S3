@@ -31,7 +31,7 @@ function passportConfig() {
   });
   passport.deserializeUser(async function (id, done) {
     try {
-      const user = await Author.findByPk(id);
+      const user = await User.findByPk(id);
       done(null, user);
     } catch (error) {
       done(error);

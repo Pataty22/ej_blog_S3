@@ -8,7 +8,7 @@ module.exports = async () => {
     users.push({
       fullName: faker.person.firstName() + " " + faker.person.lastName(),
       email: faker.internet.email(),
-      role: faker.datatype.boolean(),
+      rolId: faker.number.int({ min: 1, max: 4 }),
       password: "$2a$08$VdKXSM32Q0VxyygLbVLYHe.Axl1W09FbsnI7vR50/pdefg9/zknm.",
     });
   }

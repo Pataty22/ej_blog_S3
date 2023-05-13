@@ -90,7 +90,7 @@ async function storeArticle(req, res) {
       title: title,
       content: content,
       image: files["new-image"].newFilename,
-      authorId: req.user.id,
+      userId: req.user.id,
     });
   });
   return res.redirect("/home");
@@ -113,7 +113,7 @@ async function storeEdit(req, res) {
     const {
       "edited-title": title,
       "edited-content": content,
-      "edited-author": author,
+      //"edited-user": userId,
     } = fields;
 
     await Article.update(
@@ -121,7 +121,7 @@ async function storeEdit(req, res) {
         title: title,
         content: content,
         image: files.image.newFilename,
-        author_name: author,
+        userId: req.user.id,
       },
       {
         where: { id: id },
