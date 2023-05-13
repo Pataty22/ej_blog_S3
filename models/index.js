@@ -35,4 +35,5 @@ module.exports = {
   Article,
   User,
   Comment,
+  Rol,
 };
