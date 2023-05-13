@@ -1,5 +1,5 @@
 const faker = require("@faker-js/faker");
-const { Rol } = require("../models");
+const { Role } = require("../models");
 
 faker.locale = "es";
 
@@ -32,6 +32,6 @@ module.exports = async () => {
     }
   );
 
-  await Rol.bulkCreate(roles);
-  console.log("[Database] Se corrió el seeder de Roles.");
+  await Role.bulkCreate(roles);
+  console.log("[Database] Se corrió el seeder de Rols.");
 };

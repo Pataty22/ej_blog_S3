@@ -18,6 +18,9 @@ class Role extends Model {
           type: DataTypes.STRING(100),
           allownull: false,
         },
+        description: {
+          type: DataTypes.STRING,
+        },
       },
       {
         sequelize,
