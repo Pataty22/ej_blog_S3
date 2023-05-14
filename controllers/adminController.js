@@ -17,6 +17,15 @@ async function admin(req, res) {
   });
 }
 
+async function usersList(req, res) {
+  const usersAll = await User.findAll({
+    where: { id: req.user.id },
+  });
+
+  return res.render("usersList", { usersAll });
+}
+
 module.exports = {
   admin,
+  usersList,
 };
