@@ -19,7 +19,7 @@ async function admin(req, res) {
 
 async function usersList(req, res) {
   const usersAll = await User.findAll({
-    where: { id: req.user.id },
+    where: { id: req.user },
   });
 
   return res.render("usersList", { usersAll });
