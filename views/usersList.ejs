@@ -31,6 +31,7 @@
             <th scope="col">id</th>
             <th scope="col">FullName</th>
             <th scope="col">Created At</th>
+            <th scope="col">Role</th>
             <th scope="col" class="d-flex flex-column align-items-center">
               Actions
             </th>
@@ -38,12 +39,12 @@
         </thead>
 
         <tbody>
-          <% for(user of usersList){ %>
+          <% for(user of usersAll){ %>
           <tr>
             <td><%= user.id %></td>
             <td><%= user.fullName%></td>
             <td><%= user.createdAt %></td>
-            <td><%= user.rolId.name %></td>
+            <td><%= user.rolId %></td>
             <td class="d-flex flex-column justify-content-center">
               <button
                 type="button"
