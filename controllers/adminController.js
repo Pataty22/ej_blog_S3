@@ -50,7 +50,7 @@ async function updateUser(req, res) {
     fullName: req.body.fullnameEdit,
     email: req.body.emailEdit,
     password: req.body.passwordEdit,
-    role: req.body.roleEdit,
+    rolId: req.body.roleEdit,
   });
 
   res.redirect("/usersList");
