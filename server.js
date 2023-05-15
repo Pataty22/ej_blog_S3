@@ -7,7 +7,7 @@ const session = require("express-session");
 
 const makeUserAvailableInViews = require("./middlewares/makeUserAvailableInViews");
 
-const routes = require("./routes");
+const router = require("./routers");
 
 const app = express();
 const methodOverride = require("method-override");
@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(flash());
 app.use(express.json());
 
-routes(app);
+router(app);
 
 passportConfig();
 
