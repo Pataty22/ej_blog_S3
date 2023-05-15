@@ -23,7 +23,7 @@
         </div>
     </nav>
     <div class="container d-flex justify-content-center  p-5">
-        <form class="row g-3 needs-validation" novalidate action="/usersList" method="post">
+        <form class="row g-3" method="post" action="/usersList/<%=userE.id%>?_method=PATCH">
             <div class="col-md-12">
               <label for="fullnameEdit" class="form-label">Full Name</label>
               <input type="text" class="form-control" id="fullnameEdit" name="fullnameEdit" value="<%=userE.fullName%>" required>
@@ -41,7 +41,7 @@
             </div>
             <div class="col-md-12">
               <label class="col-sm-2 col-form-label">Change role</label>
-              <select class="form-select mb-3" aria-label=".form-select-lg example" value="<%=userE.rolId%>">
+              <select class="form-select mb-3" aria-label=".form-select-lg example" name="roleEdit" value="<%=userE.rolId%>">
                 <option value="1">Lector</option>
                 <option value="2">Escritor</option>
                 <option value="3">Editor</option>

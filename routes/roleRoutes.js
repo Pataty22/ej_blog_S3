@@ -1,10 +1,10 @@
 const express = require("express");
 const routes = express.Router();
-const userController = require("../controllers/userController");
 const adminController = require("../controllers/adminController");
+const ensureAuthenticated = require("../middlewares/ensureAuthenticated");
 
-routes.get("/usersList", userController.usersList);
-routes.get("/adminEdit/:id", adminController.editU);
-routes.post("/userList");
+routes.get("/usersList", ensureAuthenticated, adminController.usersList);
+routes.get("/adminEdit/:id", ensureAuthenticated, adminController.editU);
+routes.patch("/usersList/:id", ensureAuthenticated, adminController.updateUser);
 
 module.exports = routes;

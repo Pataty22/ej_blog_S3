@@ -10,7 +10,7 @@ const makeUserAvailableInViews = require("./middlewares/makeUserAvailableInViews
 const routes = require("./routes");
 
 const app = express();
-
+const methodOverride = require("method-override");
 app.set("view engine", "ejs");
 
 //Middlewares
@@ -26,6 +26,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(makeUserAvailableInViews);
+app.use(methodOverride("_method"));
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(flash());
