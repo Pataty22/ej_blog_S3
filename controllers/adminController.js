@@ -40,7 +40,7 @@ async function userDelete(req, res) {
       id: id,
     },
   });
-  return res.redirect("/userList");
+  return res.redirect("/usersList");
 }
 
 async function updateUser(req, res) {

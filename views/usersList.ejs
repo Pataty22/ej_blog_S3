@@ -38,30 +38,26 @@
         </thead>
 
         <tbody>
-          <% for(user of usersAll){ %>
+          <% for(const userD of usersAll){ %>
           <tr>
-            <td><%= user.id %></td>
-            <td><%= user.fullName%></td>
-            <td><%= user.rolId %></td>
+            <td><%= userD.id %></td>
+            <td><%= userD.fullName%></td>
+            <td><%= userD.rolId %></td>
             <td class="d-flex flex-column align-items-center justify-content-center">
               <button
                 type="button"
-                class="btn btn-primary w-50 mb-3"
+                class="btn btn-primary mb-3"
                 id="editBtn"
               >
                 <a
-                  href="/adminEdit/<%=user.id%>"
+                  href="/adminEdit/<%=userD.id%>"
                   style="text-decoration: none; color: white"
                   >Edit</a
                 >
               </button>
-              <button type="submit" class="btn btn-danger w-50 mb-3">
-                <a
-                  href="/usersList/<%=user.id%>"
-                  style="text-decoration: none; color: white"
-                  >Delete</a
-                >
-              </button>
+              <form method="post" action="/usersList/<%=userD.id%>?_method=DELETE" >
+                <button type="submit" class="btn btn-danger mb-3">Delete</button>
+              </form>
             </td>
           </tr>
           <% } %>
