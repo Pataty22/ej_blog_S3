@@ -15,13 +15,13 @@ async function admin(req, res) {
   });
 }
 
-async function usersList(req, res) {
-  const usersAll = await User.findAll();
+async function editU(req, res) {
+  const userE = await User.findByPk(req.params.id);
 
-  return res.render("usersList", { usersAll });
+  return res.render("adminEdit", { userE });
 }
 
 module.exports = {
   admin,
-  usersList,
+  editU,
 };

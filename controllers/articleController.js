@@ -57,24 +57,6 @@ async function formUploadArticle(req, res) {
   }
 }
 
-// async function storeArticle(req, res) {
-//   const {
-//     "new-title": title,
-//     "new-content": content,
-//     "new-image": image,
-//     "new-author": author,
-//   } = req.body;
-
-//   await Article.create({
-//     title: title,
-//     content: content,
-//     image: image,
-//     author_name: author,
-//   });
-
-//   return res.redirect("/home");
-// }
-
 // Crear noticia con formidable
 async function storeArticle(req, res) {
   const form = formidable({
