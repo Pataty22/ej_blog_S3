@@ -1,4 +1,5 @@
 const { Article, User } = require("../models");
+const bcrypt = require("bcryptjs");
 
 async function admin(req, res) {
   if (!req.isAuthenticated()) {
@@ -50,10 +51,29 @@ async function updateUser(req, res) {
     fullName: req.body.fullnameEdit,
     email: req.body.emailEdit,
     password: req.body.passwordEdit,
-    rolId: req.body.roleEdit,
+    roleId: req.body.roleEdit,
   });
 
   res.redirect("/usersList");
+}
+
+async function newRegister(req, res) {
+  return res.render("adminRegister");
+}
+
+async function adminCreatedUser(req, res) {
+  const passParaHashear = req.body.password;
+  const passHasheada = await bcrypt.hash(passParaHashear, 10);
+
+  await User.create({
+    id: req.body.id,
+    fullName: req.body.fullname,
+    email: req.body.email,
+    password: passHasheada,
+    roleId: req.body.roleEdit,
+  });
+
+  return res.redirect("/usersList");
 }
 
 module.exports = {
@@ -62,4 +82,6 @@ module.exports = {
   usersList,
   userDelete,
   updateUser,
+  newRegister,
+  adminCreatedUser,
 };

@@ -24,7 +24,7 @@ class Role extends Model {
       },
       {
         sequelize,
-        modelName: "rols",
+        modelName: "roles",
       }
     );
     return Role;

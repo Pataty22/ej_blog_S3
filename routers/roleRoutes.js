@@ -3,6 +3,9 @@ const router = express.Router();
 const adminController = require("../controllers/adminController");
 const readerController = require("../controllers/readerController");
 const ensureAuthenticated = require("../middlewares/ensureAuthenticated");
+const minAdmin = require("../middlewares/midAdmin");
+
+router.use(minAdmin);
 
 router.get("/usersList", ensureAuthenticated, adminController.usersList);
 router.get("/adminEdit/:id", ensureAuthenticated, adminController.editU);
@@ -12,6 +15,6 @@ router.delete(
   ensureAuthenticated,
   adminController.userDelete
 );
-router.get("/reader", ensureAuthenticated, readerController.readerIndex);
+//router.get("/reader", ensureAuthenticated, readerController.readerIndex);
 
 module.exports = router;

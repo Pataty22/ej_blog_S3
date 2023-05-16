@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="/css/generalStyles.css" />
 </head>
 <body>
-    <% if (locals.user) { %>
+    <% if (!user) { %>
     <header><%- include("partials/header2") %></header>
-    <% } else { %>
+    <% } else{ %>
     <header><%- include("partials/navReader") %></header>
     <% } %>
     <!--AQUI IRA HEADER-->

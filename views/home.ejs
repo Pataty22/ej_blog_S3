@@ -15,10 +15,10 @@
     <link rel="stylesheet" href="/css/generalStyles.css" />
   </head>
   <body>
-    <% if (locals.user) { %>
+    <% if (!user) { %>
     <header><%- include("partials/header") %></header>
     <% } else { %>
-    <header><%- include("partials/header2") %></header>
+    <header><%- include("partials/navGeneric") %></header>
     <% } %>
     <!--AQUI IRA HEADER-->
     <main class="">

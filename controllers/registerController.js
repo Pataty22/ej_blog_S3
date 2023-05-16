@@ -14,6 +14,7 @@ async function createdUser(req, res) {
     fullName: req.body.fullname,
     email: req.body.email,
     password: passHasheada,
+    roleId: 1,
   });
 
   if (newUser) {
