@@ -9,7 +9,7 @@ router.get("/home", articleController.index);
 
 //Rutas del Registro
 router.get("/register", registerController.viewRegister);
-router.post("/register", registerController.createdAuthor);
+router.post("/register", registerController.createdUser);
 
 //Rutas del Login/logout
 router.get("/login", loginController.viewLogin);

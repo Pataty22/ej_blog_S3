@@ -5,7 +5,7 @@ async function viewRegister(req, res) {
   return res.render("register");
 }
 
-async function createdAuthor(req, res) {
+async function createdUser(req, res) {
   const passParaHashear = req.body.password;
   const passHasheada = await bcrypt.hash(passParaHashear, 10);
 
@@ -21,11 +21,9 @@ async function createdAuthor(req, res) {
   } else {
     res.redirect("back");
   }
-
-  //return res.redirect("home");
 }
 
 module.exports = {
   viewRegister,
-  createdAuthor,
+  createdUser,
 };
